@@ -1,13 +1,460 @@
-body {
+* {
+  box-sizing: border-box;
+  padding: 0;
   margin: 0;
-  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
-    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
-    sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
 }
 
-code {
-  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
-    monospace;
+body {
+  font-family: "Montserrat", sans-serif;
+  background-color: rgb(249, 250, 255);
+  color: #555;
+}
+
+h1,
+h2 {
+  margin: 2.5rem 0;
+}
+
+ul {
+  list-style: none;
+}
+
+label,
+button {
+  transition: all 0.2s ease-in;
+  cursor: pointer;
+}
+
+label:hover,
+button:hover {
+  opacity: 0.8;
+}
+
+::placeholder {
+  color: #bfbfbf;
+}
+
+.no-click {
+  display: none;
+  position: fixed;
+  min-width: 100%;
+  min-height: 100%;
+  top: 0;
+  left: 0;
+  z-index: 1;
+}
+
+.skeleton {
+  opacity: 0.7;
+  animation: skeleton-loading 1s linear infinite alternate;
+}
+
+.skeleton-text {
+  display: flex;
+  width: 50%;
+  height: 1rem;
+}
+
+.skeleton-heading {
+  display: flex;
+  width: 70%;
+  height: 1.1rem;
+  margin-top: 0.5rem;
+}
+
+@keyframes skeleton-loading {
+  0% {
+    background-color: hsl(200, 20%, 70%);
+  }
+
+  100% {
+    background-color: hsl(200, 20%, 95%);
+  }
+}
+
+/* Utility Classes */
+.flex {
+  display: flex;
+}
+
+.none {
+  display: none;
+}
+
+.box {
+  background-color: white;
+  padding: 1.5rem;
+  border-radius: 1rem;
+  border: none;
+  outline: none;
+  box-shadow: 0 0 1em 0 rgba(0, 0, 0, 0.2);
+}
+
+.mt {
+  margin-top: 1.5rem;
+}
+
+.ml {
+  margin-left: 1.5rem;
+}
+
+.mr {
+  margin-right: 1.5rem;
+}
+
+.red-placeholder::placeholder {
+  color: red;
+}
+
+.color-red {
+  color: red;
+}
+
+.capitalize {
+  text-transform: capitalize;
+}
+
+.opacity {
+  opacity: 0;
+}
+
+/* Element Classes */
+.container {
+  flex-direction: column;
+  max-width: 1280px;
+  width: 100%;
+  margin: 0 auto;
+  padding: 2em;
+  position: relative;
+}
+
+.search-bar-container {
+  width: 100%;
+}
+
+.search-bar-container form {
+  position: relative;
+}
+
+.search-bar-container button {
+  background-color: transparent;
+  width: auto;
+  border: none;
+  color: rgb(170, 170, 170);
+}
+
+.search-bar-container button:hover {
+  color: #ff595e;
+}
+
+.icon {
+  position: absolute;
+  width: 1.5rem;
+  top: 50%;
+  transform: translateY(-50%);
+}
+
+.magnifying-glass {
+  opacity: 0.5;
+}
+
+.clear-search {
+  right: 0;
+}
+
+.search-bar {
+  font-family: "Montserrat", sans-serif;
+  font-size: 1.5rem;
+  color: #888;
+  width: 100%;
+  padding-left: 4.3rem;
+}
+
+.seach-bar input {
+  color: #888;
+  font-size: 1.5rem;
+}
+
+.categories {
+  gap: 1rem;
+}
+
+.categories li {
+  cursor: pointer;
+  transition: all 0.2s ease-in;
+  flex: 1 1 0;
+}
+
+.categories li:hover {
+  opacity: 0.8;
+}
+
+.business,
+.red {
+  background: linear-gradient(to bottom left, #f8a6a9, #ff595e);
+  border-color: #ff595e;
+  color: white;
+}
+
+.personal,
+.blue {
+  background: linear-gradient(to bottom left, #a2dbff, #1982c4);
+  border-color: #1982c4;
+  color: white;
+}
+
+.other,
+.green {
+  background: linear-gradient(to bottom left, #cff790, #75ac1e);
+  border-color: #8ac926;
+  color: white;
+}
+
+.grey {
+  background: linear-gradient(to bottom left, #e6dbdb, #c3baba);
+  color: rgb(126, 126, 126);
+}
+
+li.new-task {
+  min-width: auto;
+  flex: 0;
+  justify-content: center;
+  align-items: center;
+}
+
+.button-text {
+  margin-left: 1rem;
+}
+
+.new-task-container {
+  flex-wrap: wrap;
+  z-index: 99;
+  position: relative;
+}
+
+.new-task-container form {
+  min-width: 100%;
+  flex-direction: column;
+}
+
+.new-task-container form input {
+  min-width: 100%;
+  margin: 0;
+  padding: 1rem 1rem 1rem 0;
+}
+
+.task-edit {
+  position: relative;
+  z-index: 2;
+}
+
+.task-edit form {
+  min-width: 100%;
+}
+
+.buttons-categories {
+  align-items: center;
+  margin-top: 1rem;
+}
+
+.buttons-categories label {
+  padding: 1rem;
+  margin-left: 1rem;
+}
+
+.buttons-categories input[type="radio"] {
+  display: none;
+}
+
+.buttons-categories label {
+  background: linear-gradient(to bottom left, #e6dbdb, #c3baba);
+}
+
+.radio-business:checked + label {
+  background: linear-gradient(to bottom left, #f8a6a9, #ff595e);
+  color: white;
+}
+
+.radio-personal:checked + label {
+  background: linear-gradient(to bottom left, #a2dbff, #1982c4);
+  color: white;
+}
+
+.radio-other:checked + label {
+  background: linear-gradient(to bottom left, #cff790, #75ac1e);
+  color: white;
+}
+
+.checkbox {
+  align-items: center;
+}
+
+.checkbox span {
+  transition: all 0.2s ease-in;
+}
+
+label.disabled {
+  cursor: default;
+}
+
+input[type="checkbox"] {
+  appearance: none;
+  width: 2em;
+  height: 2em;
+  border-width: 2.5px;
+  border-style: solid;
+  border-radius: 50%;
+  justify-content: center;
+  align-items: center;
+  transition: all 0.2s ease-in;
+  background: white;
+  cursor: pointer;
+}
+
+input[type="checkbox"]:checked {
+  border-color: rgb(131, 131, 131);
+  background: linear-gradient(
+    to bottom left,
+    rgb(190, 190, 190),
+    rgb(150, 150, 150)
+  );
+  color: rgb(131, 131, 131);
+  font-weight: bold;
+}
+
+input[type="checkbox"]:checked::before {
+  content: "✓";
+}
+
+input[type="checkbox"] + span {
+  cursor: pointer;
+}
+
+input[type="checkbox"]:checked + span {
+  text-decoration: line-through;
+  color: rgb(190, 190, 190);
+}
+
+input[type="checkbox"]:disabled {
+  cursor: default;
+}
+
+.buttons {
+  margin-left: auto;
+}
+
+.buttons button {
+  padding: 1rem;
+}
+
+.buttons button:last-child {
+  margin-left: 0.5rem;
+}
+
+.box input[type="text"] {
+  font-family: "Montserrat", sans-serif;
+  font-size: 1rem;
+  color: #555;
+  border: none;
+  outline: none;
+  cursor: text;
+}
+
+input[type="text"]:disabled {
+  background-color: rgb(216, 215, 215);
+}
+
+@media screen and (max-width: 1014px) {
+  h1,
+  h2 {
+    margin: 1rem 0;
+  }
+
+  .container {
+    padding: 1em;
+  }
+
+  .ml {
+    margin-left: 0.5rem;
+  }
+
+  .box {
+    padding: 1rem;
+  }
+
+  .magnifying-glass {
+    margin-left: 1rem;
+  }
+
+  .search-bar {
+    padding-left: 3.5rem;
+  }
+
+  ul.categories {
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: space-evenly;
+    font-size: 0.9rem;
+  }
+
+  ul.categories li.new-task {
+    min-width: 100%;
+  }
+
+  .buttons-categories {
+    flex-direction: column;
+    min-width: 100%;
+  }
+
+  .buttons-categories span {
+    min-width: 100%;
+  }
+
+  .options {
+    flex-direction: row;
+    flex-wrap: wrap;
+    gap: 1rem;
+    min-width: 100%;
+    margin-top: 1rem;
+  }
+
+  .options label {
+    flex: 1 1 0;
+    margin: 0;
+  }
+
+  .button-text {
+    display: flex;
+    flex-direction: row;
+    align-items: baseline;
+    padding: 0;
+  }
+
+  .button-text h3 {
+    margin-left: 0.4rem;
+  }
+
+  ul.tasks li {
+    flex-direction: column;
+  }
+
+  .task-edit form {
+    flex-direction: column;
+    min-width: 100%;
+  }
+
+  .buttons {
+    width: 100%;
+    margin-top: 1rem;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+  }
+
+  .buttons button {
+    width: 48%;
+    border-radius: 0.5rem;
+    padding: 0.3rem;
+  }
 }
