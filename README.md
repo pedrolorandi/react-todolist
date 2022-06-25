@@ -6,7 +6,7 @@ This is my first React app
 
 ### Technologies Used
 <a href="#">
-  <img src="https://img.shields.io/badge/javascript-%23323330.svg?style=for-the-badge&logo=react&logoColor=%23F7DF1E" alt="React" />
+  <img src="https://img.shields.io/badge/react-%23323330.svg?style=for-the-badge&logo=react&logoColor=%23F7DF1E" alt="React" />
 </a>
 
 <br/><br/>
