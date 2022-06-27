@@ -17,5 +17,5 @@ A basic CRUD application developed using React, CSS3 and Firebase. It uses hooks
 
 <br/><br/>
 <a href="https://pedrolorandi.github.io/react-todolist/" target="_blank">
-  <img src="https://img.shields.io/badge/view_live-white.svg?style=for-the-badge&logo=airplay-video&logoColor=black" alt="Portfolio" />
+  <img src="https://img.shields.io/badge/view_live-white.svg?style=for-the-badge&logo=airplay-video&logoColor=black" alt="View Live" />
 </a>
